@@ -1,0 +1,6 @@
+<h1><b>Account Numbers</b></h1>
+<% @accounts.each do |a| %>
+  <!--<p>NOT WORKING: <%#= link_to(a.account_number, customer_account_path(a.id)) %></p> -->
+  <p><%= link_to(a.account_number, "/customers/#{@get_customer.id}/accounts/#{a.id}") %></p>
+<% end %>
+

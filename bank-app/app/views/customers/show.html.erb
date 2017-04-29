@@ -1,0 +1,7 @@
+<h1><%= @customer.first_name%> <%= @customer.last_name %></h1>
+
+<p><b>Tax file number:</b> <%= @customer.tfn %></p>
+
+<%= link_to("Update Details", edit_customer_path(@customer.id), class: "btn btn-default") %>
+<%= link_to("Manage Accounts", customer_accounts_path(@customer.id), class: "btn btn-default") %>
+<%= link_to("Make Transaction", "#", class: "btn btn-default") %>
