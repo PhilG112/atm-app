@@ -1,3 +1,10 @@
-<h1>Account <%= @account.account_number %></h1>
+<h1>Account: <%= @account.account_number %></h1>
 
-<p>Accoun</p>
+<p>Your account balance is: <b>$<%= @account.balance %></b></p>
+<% if(@account.is_open) %>
+  <p>Account is open.</p>
+  <% else %>
+  <p>Account is closed.</p>
+<% end %>
+<p>Account description:</p>
+<p><%= @account.description %></p>

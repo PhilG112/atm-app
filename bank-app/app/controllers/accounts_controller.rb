@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+
   def index
     @get_customer = Customer.find_by(id: params["customer_id"])
     @accounts = @get_customer.accounts.all
