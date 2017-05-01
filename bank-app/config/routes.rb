@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :banks
+  get "/login" => "session#new"
+  post "/login" => "session#create"
+  delete "/logout" => "session#destroy"
+
+  get "/register" => "customers#new"
+
   resources :customers do
-    resources :accounts do
-      resources :transactions
-    end
+    resources :accounts
   end
 
-  root "home#index"
+  root "session#new"
 end
 

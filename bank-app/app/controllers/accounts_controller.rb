@@ -13,8 +13,10 @@ class AccountsController < ApplicationController
   end
 
   def create
-    account = Account.create(account_params())
-    redirect_to(customer_account_path(account))
+    account = Account.new(account_params())
+    account.customer = @current_user
+    account.save()
+    redirect_to("customers/#{session[:customer_id]}/accounts/#{account.id}")
   end
 
   def edit
@@ -23,7 +25,7 @@ class AccountsController < ApplicationController
   def update
   end
   
-  def destrory
+  def destroy
   end
 
   private

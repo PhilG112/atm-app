@@ -16,15 +16,19 @@
           <a class="navbar-brand" href="/">Banking App</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to("Register", new_customer_path()) %></li>
-        </ul>
-        <ul class="nav navbar-nav">
-          <li><%= link_to("Customers", customers_path()) %></li>
+          <% if(@current_user) %>
+              <li><%= link_to("Logout", "/logout", method: :delete) %></li>
+              <li><%= link_to(@current_user.email, customer_path(@current_user)) %></li>
+            <% else %>
+              <li><%= link_to("Login", "/login") %></li>
+              <li><%= link_to("Sign Up", "/register") %></li>
+            <% end %>
         </ul>
       </div>
     </nav>
 
     <main class="jumbotron">
+      <%= flash[:error] %>
       <%= yield %>
     </main>
 
