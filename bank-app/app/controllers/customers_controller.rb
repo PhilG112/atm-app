@@ -1,4 +1,8 @@
 class CustomersController < ApplicationController
+  # def initialize
+    
+  # end
+
   def index
     @customers = Customer.all()
   end

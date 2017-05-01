@@ -13,5 +13,4 @@ class Account < ApplicationRecord
   def account_balance
     self.balance = total_debits - total_credits
   end
-
 end

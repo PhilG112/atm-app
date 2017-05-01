@@ -13,9 +13,5 @@
     <%= c.label :tfn, "Tax File Number" %>
     <%= c.number_field :tfn, required: true, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= c.label :bank_id, "Which bank?" %>
-    <%= c.collection_select(:bank_id, Bank.all, :id, :name, class: "form-control") %>
-  </div>
   <%= c.submit("Register" ,class: "btn btn-default") %>
 <% end %>
