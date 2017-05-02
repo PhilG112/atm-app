@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   # TODO: Setup Authorization for controller
-  
+  # TODO: Make sure customer cannot see transactinos for a closed account
   def index
     customer = Customer.find_by(id: @current_user.id)
     @transactions = customer.transactions.all
