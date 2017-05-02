@@ -18,11 +18,13 @@ class AccountsController < ApplicationController
   def create
     account = Account.new(account_params_new())
     # TODO: Make account_number unique
-    # TODO: Set openeing account balance to initial credit transaction
     account.account_number = Random.rand(100..10000)
     account.is_open = true
     account.customer = @current_user
     account.save()
+    t = Transaction.new
+    t.initial_credit(account)
+    t.save()
     redirect_to(customer_account_path(@current_user, account))
   end
 

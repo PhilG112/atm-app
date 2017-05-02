@@ -5,6 +5,7 @@
 <p><b>Customer Number:</b> <%= @customer.customer_number %></p>
 <p><b>Email:</b> <%= @customer.email %></p>
 
-<%= link_to("Update Details", edit_customer_path(@customer.id), class: "btn btn-default") %>
-<%= link_to("Manage Accounts", customer_accounts_path(@customer.id), class: "btn btn-default") %>
-<%= link_to("Make Transaction", "#", class: "btn btn-default") %>
+<%= link_to("Update Details", edit_customer_path(@current_user), class: "btn btn-default") %>
+<%= link_to("Manage Accounts", customer_accounts_path(@current_user), class: "btn btn-default") %>
+<%= link_to("Make Transaction", new_customer_transaction_path(@current_user), class: "btn btn-default") %>
+<%= link_to("View All Transactions", customer_transactions_path(@current_user), class: "btn btn-default") %>

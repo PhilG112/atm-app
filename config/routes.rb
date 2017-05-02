@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/register" => "customers#new"
 
   resources :customers do
+    resources :transactions
     resources :accounts
   end
 

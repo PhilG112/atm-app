@@ -1,0 +1,24 @@
+<h1>Make a transaction between accounts</h1>
+
+<div class="row">
+  <%= form_for(@transaction, url: customer_transactions_path()) do |t| %>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= t.label "From Account:" %>
+        <%= t.collection_select(:account_id, @current_user.accounts, :id, :account_number, class: "form-control") %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= t.label "From Account:" %>
+        <%= t.collection_select(:account_id, @current_user.accounts, :id, :account_number, class: "form-control") %>
+      </div>
+    </div>
+      <div class="form-group">
+        <%= t.label "Amount" %>
+
+      </div>
+      <%= t.submit("Transfer", class: "btn btn-success") %>
+  <% end %>
+</div>
+

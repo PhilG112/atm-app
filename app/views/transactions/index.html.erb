@@ -1,0 +1,9 @@
+<h1>Transactions</h1>
+
+<% @transactions.each do |t| %>
+    <p>Type: <%= t.transaction_type %></p>
+    <p>Credits: <%= t.credits %></p>
+    <p>Debits: <%= t.debits %></p>
+    <p>Acc Number: <%= t.account.account_number %></p>
+    <hr>
+<% end %>
