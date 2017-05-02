@@ -1,0 +1,10 @@
+<h1>Account: <%= @account.account_number %></h1>
+
+<%= form_for @account, url: customer_account_path do |a| %>
+    <div class="form-group">
+        <%= a.label :description %>
+        <%= a.text_field :description, required: true, class: "form-control" %>
+    </div>
+
+    <%= a.submit "Update Account", class: "btn btn-success" %>
+<% end %>

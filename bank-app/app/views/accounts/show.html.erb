@@ -1,11 +1,7 @@
 <h1>Account: <%= @account.account_number %></h1>
-
-<p>Your account balance is: <b>$<%= @account.balance %></b></p>
-<% if(@account.is_open) %>
-  <p>Account is open.</p>
-  <% else %>
-  <p>Account is closed.</p>
-<% end %>
+<p>Your account balance: <b>$<%= @account.balance %></b></p>
 <p>Account description: <%= @account.description %></p>
+<%= link_to("Edit Account", edit_customer_account_path(@account.customer.id, @account.id), class: "btn btn-default")%>
+<%= link_to("Close Account", customer_account_path, method: :delete, class: "btn btn-danger")%>
 
 

@@ -1,4 +1,6 @@
 class SessionController < ApplicationController
+  before_action :authorise, only: [:new]
+
   def new
   end
 
@@ -20,4 +22,14 @@ class SessionController < ApplicationController
     session[:customer_id] = nil
     redirect_to("/login")
   end
+
+  private
+  def authorise
+    if(@current_user)
+      flash[:error] = "You are already logged in"
+      redirect_to(customer_path(@current_user.id))
+    end
+    
+  end
+  
 end

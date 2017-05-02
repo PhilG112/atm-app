@@ -13,16 +13,20 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">Banking App</a>
+          <% if(@current_user) %>
+            <%= link_to("Your Profile", customer_path(@current_user), class: "navbar-brand") %>
+          <% else %>
+            <%= link_to("Banking App", root_path, class: "navbar-brand") %>
+          <% end %>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <% if(@current_user) %>
-              <li><%= link_to("Logout", "/logout", method: :delete) %></li>
-              <li><%= link_to(@current_user.email, customer_path(@current_user)) %></li>
-            <% else %>
-              <li><%= link_to("Login", "/login") %></li>
-              <li><%= link_to("Sign Up", "/register") %></li>
-            <% end %>
+            <li><%= link_to(@current_user.email, customer_path(@current_user)) %></li>
+            <li><%= link_to("Logout", "/logout", method: :delete) %></li>
+          <% else %>
+            <li><%= link_to("Login", "/login") %></li>
+            <li><%= link_to("Sign Up", "/register") %></li>
+          <% end %>
         </ul>
       </div>
     </nav>

@@ -1,11 +1,9 @@
 class CustomersController < ApplicationController
   before_action :check_if_logged_out, only: [:new, :create]
-  before_action :check_if_logged_in, only: [:edit, :update]
-
+  before_action :check_if_logged_in, only: [:edit, :update, :show]
 
   def show
     @customer = Customer.find_by(id: params["id"])
-    # @balance = account.account_balance
   end
 
   def new
@@ -15,6 +13,8 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params())
     @customer.bank_id = Bank.first.id
+    # TODO: Make customer_number unique
+    @customer.customer_number = Random.rand(1000..10000)
     if(@customer.save)
       session[:user_id] = @customer.id
       redirect_to(customer_path(@customer))

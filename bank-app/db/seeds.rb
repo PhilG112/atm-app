@@ -12,7 +12,7 @@ Customer.destroy_all()
 cust1 = Customer.create({
   first_name: "Phil",
   last_name: "Grujovski",
-  tfn: "tfn123456789",
+  tfn: "74659265",
   email: "phil@ga.co",
   phone_number: "041826467",
   customer_number: 100,
@@ -59,3 +59,5 @@ puts "transaction1 #{transaction1.transaction_type}"
 
 puts "THE CUSTOMER HAS #{cust1.transactions.first.transaction_type}"
 
+
+puts cust1.transactions.all.sum(:debits)
