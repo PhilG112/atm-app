@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  # TODO: Setup Authorization for controller
+  
   def index
     customer = Customer.find_by(id: @current_user.id)
     @transactions = customer.transactions.all
