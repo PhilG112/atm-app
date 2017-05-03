@@ -1,0 +1,20 @@
+<div class="table-div">
+    <table class="table table-striped">
+        <tr>
+            <th>Credits</th>
+            <th>Debits</th>
+            <th>Acc Number</th>
+            <th>Created at</th>
+        </tr>
+        <% @transactions.each do |t| %>
+            <% if(t.account.is_open) %>
+                <tr>
+                    <td><%= t.credits %></td>
+                    <td><%= t.debits %></td>
+                    <td><%= link_to(t.account.account_number, customer_account_path(@current_user.id, t.account.id)) %></td>
+                    <td><%= t.created_at %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+</div>

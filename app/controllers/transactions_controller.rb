@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
-  # TODO: Setup Authorization for controller
-  # TODO: Make sure customer cannot see transactinos for a closed account
+  before_action :authorise
+
   def index
     customer = Customer.find_by(id: @current_user.id)
     @transactions = customer.transactions.all
@@ -12,12 +12,27 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    # TODO: fix transactions between accounts
+    # TODO: Ask jack how to prevent closed accoutns form showing up in the collection_select
     @transaction = Transaction.new
   end
 
   def create
-    raise "hell"
+    # TODO: Check if from_account has enough money to perform the transaction
+    from_account = params["transaction"]["from_account_id"].to_i
+    to_account = params["transaction"]["to_account_id"].to_i
+    amount = params["transaction"]["transfer_amount"].to_f
+    Transaction.credit_account(from_account, amount)
+    Transaction.debit_account(to_account, amount)
+    redirect_to(customer_path(@current_user))
+  end
+
+  private
+  def authorise
+    if(!@current_user)
+      flash[:error] = "You need to login to access that page."
+      redirect_to(login_path())  
+    end
+    
   end
   
 end

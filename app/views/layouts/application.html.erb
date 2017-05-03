@@ -32,9 +32,9 @@
       </div>
     </nav>
 
-    <main>
-      <div class="text-danger"><%= flash[:error] %></div>
+    <main class="jumbotron">
       <%= yield %>
+      <div class="text-danger"><%= flash[:error] %></div>
     </main>
 
   </div>

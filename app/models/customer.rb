@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   has_many :transactions, through: :accounts
   has_secure_password
 
-  def self.starting_account 
+  def self.starting_customer_number
     10000
   end
 end

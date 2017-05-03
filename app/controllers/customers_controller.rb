@@ -13,9 +13,9 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params())
     @customer.bank_id = Bank.first.id
-    # TODO: Make customer_number unique
-    @customer.customer_number = Random.rand(1000..10000)
     if(@customer.save)
+      @customer.customer_number = Customer.starting_customer_number + @customer.id
+      @customer.save
       session[:user_id] = @customer.id
       redirect_to(customer_path(@customer))
     else

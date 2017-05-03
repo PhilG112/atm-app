@@ -33,6 +33,14 @@ acc1 = Account.create({
   customer_id: cust1.id
 })
 
+acc2 = Account.create({
+  balance: 1000.00,
+  account_number: 2,
+  description: "Second account of phil",
+  is_open: true,
+  customer_id: cust1.id
+})
+
 puts "Customers bank is #{cust1.bank.name}"
 puts "The banks customers are #{anz.customers.first.first_name}"
 puts "#{cust1.first_name} account balance is #{cust1.accounts.first.balance}"
@@ -48,12 +56,6 @@ transaction1 = Transaction.create({
  account_id: acc1.id
 })
 
-transaction2 = Transaction.create({
-  transaction_type: "Debit",
-  debits: 10000.00,
-  credits: 0,
-  account_id: acc1.id
-})
 
 puts "transaction1 #{transaction1.transaction_type}"
 

@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find_by(id: params["id"])
+    @balance = @account.account_balance
   end
 
   def new
@@ -17,14 +18,12 @@ class AccountsController < ApplicationController
 
   def create
     account = Account.new(account_params_new())
-    # TODO: Make account_number unique
-    account.account_number = Random.rand(100..10000)
     account.is_open = true
     account.customer = @current_user
     account.save()
-    t = Transaction.new
-    t.initial_credit(account)
-    t.save()
+    account.account_number = Account.starting_account_number + account.id
+    account.save()
+    Transaction.initial_credit(account)
     redirect_to(customer_account_path(@current_user, account))
   end
 
@@ -57,7 +56,7 @@ class AccountsController < ApplicationController
   def authorise
     if(!@current_user)
       flash[:error] = "You need to login to access that page."
-      redirect_to("/")
+      redirect_to(login_path())
     end
   end
 
