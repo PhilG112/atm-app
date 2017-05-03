@@ -14,11 +14,17 @@
  *= require_self
  */
 
+// @import "materialize";
+
 main {
     text-align: center;
 }
 
 .form-control {
-    margin: 0 auto;
     width: 35%;
+    margin: 0 auto;
+}
+
+.jumbotron {
+    padding-top: 20px;
 }
