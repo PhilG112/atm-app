@@ -5,18 +5,18 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= t.label "From Account:" %>
-        <%= t.collection_select(:account_id, @current_user.accounts, :id, :account_number, class: "form-control") %>
+        <%= t.collection_select(:from_account_id, @current_user.accounts, :id, :account_number, class: "form-control") %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <%= t.label "From Account:" %>
-        <%= t.collection_select(:account_id, @current_user.accounts, :id, :account_number, class: "form-control") %>
+        <%= t.collection_select(:to_account_id, @current_user.accounts, :id, :account_number, class: "form-control") %>
       </div>
     </div>
     <div class="form-group">
       <%= t.label "Amount" %>
-      <p>TODO: Add number field</p>
+      <%= t.number_field(:transfer_amount)%>
     </div>
     <%= t.submit("Transfer", class: "btn btn-success") %>
   <% end %>

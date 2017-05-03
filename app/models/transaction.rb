@@ -8,5 +8,15 @@ class Transaction < ApplicationRecord
     self.debits = acc.balance
     return self
   end
+
+  def from_account_id
+  end
+
+  def to_account_id
+  end
+
+  def transfer_amount
+  end
+  
 end
 

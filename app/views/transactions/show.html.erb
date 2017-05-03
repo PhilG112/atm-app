@@ -1,8 +1,18 @@
 <h1>Transactions for account <%= @account.account_number %> </h1>
 
-<% @transactions.each do |t| %>
-    <p>Type: <%= t.transaction_type.capitalize %></p>
-    <p>Credits: <%= t.credits %></p>
-    <p>Debits: <%= t.debits %></p>
-    <hr>
-<% end %>
+<table class="table table-striped">
+    <tr>
+        <th>Credits</th>
+        <th>Debits</th>
+        <th>Acc Number</th>
+        <th>Created at</th>
+    </tr>
+    <% @transactions.each do |t| %>
+        <tr>
+            <td><%= t.credits %></td>
+            <td><%= t.debits %></td>
+            <td><%= t.account.account_number %></td>
+            <td><%= t.created_at %></td>
+        </tr>
+    <% end %>
+</table>
