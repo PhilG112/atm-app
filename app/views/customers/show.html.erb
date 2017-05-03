@@ -9,3 +9,5 @@
 <%= link_to("Manage Accounts", customer_accounts_path(@current_user), class: "btn btn-default") %>
 <%= link_to("Make Transaction", new_customer_transaction_path(@current_user), class: "btn btn-default") %>
 <%= link_to("View All Transactions", customer_transactions_path(@current_user), class: "btn btn-default") %>
+
+<p class="text-success"><%= flash[:transaction_outcome] %></p>

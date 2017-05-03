@@ -23,6 +23,7 @@ class TransactionsController < ApplicationController
     amount = params["transaction"]["transfer_amount"].to_f
     Transaction.credit_account(from_account, amount)
     Transaction.debit_account(to_account, amount)
+    flash[:transaction_outcome] = "Transaction Complete."
     redirect_to(customer_path(@current_user))
   end
 
