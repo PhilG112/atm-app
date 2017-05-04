@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   before_action :check_if_logged_out, only: [:new, :create]
   before_action :check_if_logged_in, only: [:edit, :update, :show]
   # TODO: Fix user privlages, cannot visit other user accounts and information
+  before_action :check_if_same_user
   def show
     @customer = Customer.find_by(id: params["id"])
   end
@@ -54,4 +55,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def check_if_same_user
+    if(@current_user.id != params["id"].to_i)
+      flash[:error] = "You cannot visit that page."
+      redirect_to(customer_path(@current_user))
+    end  
+  end
 end

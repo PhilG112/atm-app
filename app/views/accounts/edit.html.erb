@@ -1,10 +1,18 @@
-<h1>Account: <%= @account.account_number %></h1>
+<div class="row">
 
-<%= form_for @account, url: customer_account_path do |a| %>
-    <div class="form-group">
-        <%= a.label :description %>
-        <%= a.text_field :description, required: true, class: "form-control" %>
+    <%= render :partial => "./layouts/customer-controls" %>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1>Account: <%= @account.account_number %></h1>
+
+        <%= form_for @account, url: customer_account_path do |a| %>
+            <div class="form-group">
+                <%= a.label :description %>
+                <%= a.text_field :description, required: true, class: "form-control" %>
+            </div>
+
+            <%= a.submit "Update Account", class: "btn btn-success" %>
+        <% end %>
     </div>
 
-    <%= a.submit "Update Account", class: "btn btn-success" %>
-<% end %>
+</div>

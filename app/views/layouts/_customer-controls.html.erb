@@ -1,0 +1,16 @@
+<div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li>
+                <%= link_to("Update Details", edit_customer_path(@current_user)) %>
+            </li>
+            <li>
+                <%= link_to("Manage Accounts", customer_accounts_path(@current_user)) %>
+            </li>
+            <li>
+                <%= link_to("Make Transaction", new_customer_transaction_path(@current_user)) %>
+            </li>
+            <li>
+                <%= link_to("View All Transactions", customer_transactions_path(@current_user)) %>
+            </li>
+        </ul>
+    </div>

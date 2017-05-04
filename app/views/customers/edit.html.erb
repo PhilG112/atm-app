@@ -1,42 +1,52 @@
-<h1>Update your details here</h1>
+<div class="row">
 
-<% unless @customer.errors.full_messages.empty? %>
-    <% @customer.errors.full_messages.each do |e| %>
-        <p>
-          <%= e %>
-        </p>
-    <% end %>
-<% end %>
+  <%= render :partial => "./layouts/customer-controls"%>
 
-<%= form_for(@customer) do |f| %>
-    <div class="form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label "Tax file number" %>
-      <%= f.text_field :tfn, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :phone_number %>
-      <%= f.text_field :phone_number, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, required: true, class: "form-control"%>
-    </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="my-forms">
+      <h1>Update your details here</h1>
 
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control"%>
+      <% unless @customer.errors.full_messages.empty? %>
+          <% @customer.errors.full_messages.each do |e| %>
+              <p>
+                <%= e %>
+              </p>
+          <% end %>
+      <% end %>
+
+      <%= form_for(@customer) do |f| %>
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label "Tax file number" %>
+            <%= f.text_field :tfn, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone_number %>
+            <%= f.text_field :phone_number, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: "form-control"%>
+          </div>
+          <%= f.submit("Update Details", class: "btn btn-success")%>
+      <% end %>
+
     </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "form-control"%>
-    </div>
-    <%= f.submit("Update Details", class: "btn btn-success")%>
-<% end %>
+  </div>
+</div>

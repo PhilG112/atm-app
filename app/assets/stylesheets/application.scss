@@ -18,9 +18,22 @@
 
 main {
     margin-top: 60px;
+    text-align: center;
 }
 
 .form-control {
     width: 35%;
     margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.error-messages {
+    margin-left: 200px;
 }

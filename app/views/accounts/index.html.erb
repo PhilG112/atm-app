@@ -1,7 +1,14 @@
-<h1>Account Numbers</h1>
-<% @accounts.each do |a| %>
-  <% if(a.is_open) %>
-    <p><%= link_to(a.account_number, customer_account_path(@get_customer.id,  a.id)) %></p>
-  <% end %>
-<% end %>
-<%= link_to("Open Account", new_customer_account_path(), class: "btn btn-default") %>
+<div class="row">
+
+  <%= render :partial => "./layouts/customer-controls"%>
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1>Account Numbers</h1>
+      <% @accounts.each do |a| %>
+        <% if(a.is_open) %>
+          <p><%= link_to(a.account_number, customer_account_path(@get_customer.id,  a.id)) %></p>
+        <% end %>
+      <% end %>
+      <%= link_to("Open Account", new_customer_account_path(), class: "btn btn-default") %>
+  </div>
+</div>

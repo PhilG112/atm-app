@@ -41,13 +41,14 @@
 
     <main class="container-fluid">
       <%= yield %>
+      <div class="error-messages">
+        <p class="text-danger err"><%= flash[:error] %></p>
+        <p class="text-success err"><%= flash[:successful_transaction] %></p>
+        <p class="text-danger err"><%= flash[:failed_transaction] %></p>
+      </div>
     </main>
 
-    <div class="error-messages">
-      <p class="text-danger"><%= flash[:error] %></p>
-      <p class="text-success"><%= flash[:successful_transaction] %></p>
-      <p class="text-danger"><%= flash[:failed_transaction] %></p>
-    </div>
+    
 
   <scriptsrc="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

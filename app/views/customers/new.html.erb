@@ -1,42 +1,44 @@
-<h1>Registration Form</h1>
+<div class="my-forms">
+  <h1>Registration Form</h1>
 
-<% unless @customer.errors.full_messages.empty? %>
-    <% @customer.errors.full_messages.each do |e| %>
-        <p>
-          <%= e %>
-        </p>
-    <% end %>
-<% end %>
+  <% unless @customer.errors.full_messages.empty? %>
+      <% @customer.errors.full_messages.each do |e| %>
+          <p>
+            <%= e %>
+          </p>
+      <% end %>
+  <% end %>
 
-<%= form_for(@customer) do |f| %>
-    <div class="form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label "Tax file number" %>
-      <%= f.text_field :tfn, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :phone_number %>
-      <%= f.text_field :phone_number, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, required: true, class: "form-control"%>
-    </div>
+  <%= form_for(@customer) do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, required: true, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, required: true, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label "Tax file number" %>
+        <%= f.text_field :tfn, required: true, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number, required: true, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, required: true, class: "form-control"%>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, required: true, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, required: true, class: "form-control"%>
-    </div>
-    <%= f.submit("Register", class: "btn btn-success")%>
-<% end %>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, required: true, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, required: true, class: "form-control"%>
+      </div>
+      <%= f.submit("Register", class: "btn btn-success")%>
+  <% end %>
+</div>

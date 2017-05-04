@@ -1,23 +1,29 @@
-<h1>Transfer between accounts</h1>
-
 <div class="row">
-  <%= form_for(@transaction, url: customer_transactions_path()) do |t| %>
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= t.label "From Account:" %>
-        <%= t.collection_select(:from_account_id, @current_user.accounts.where(is_open: true), :id, :account_number, class: "form-control") %>
+
+  <%= render :partial => "./layouts/customer-controls"%>
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1>Transfer between accounts</h1>
+
+      <div class="row">
+        <%= form_for(@transaction, url: customer_transactions_path()) do |t| %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= t.label "From Account:" %>
+              <%= t.collection_select(:from_account_id, @current_user.accounts.where(is_open: true), :id, :account_number, class: "form-control") %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= t.label "To Account:" %>
+              <%= t.collection_select(:to_account_id, @current_user.accounts.where(is_open: true), :id, :account_number, class: "form-control") %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= t.label "Amount:" %>
+            <%= t.number_field(:transfer_amount)%>
+          </div>
+          <%= t.submit("Transfer", class: "btn btn-success transfer-btn") %>
+        <% end %>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= t.label "To Account:" %>
-        <%= t.collection_select(:to_account_id, @current_user.accounts.where(is_open: true), :id, :account_number, class: "form-control") %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= t.label "Amount" %>
-      <%= t.number_field(:transfer_amount)%>
-    </div>
-    <%= t.submit("Transfer", class: "btn btn-success") %>
-  <% end %>
 </div>

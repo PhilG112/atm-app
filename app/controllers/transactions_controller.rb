@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :authorise
 
+
   def index
     customer = Customer.find_by(id: @current_user.id)
     @transactions = customer.transactions.all
@@ -20,13 +21,13 @@ class TransactionsController < ApplicationController
     to_account = params["transaction"]["to_account_id"].to_i
     amount = params["transaction"]["transfer_amount"].to_f
 
-    if(check_account_balance(from_account, amount))
+    if(check_account_balance(from_account, amount) && amount != 0)
       Transaction.credit_account(from_account, amount)
       Transaction.debit_account(to_account, amount)
       flash[:successful_transaction] = "Transaction Complete."
       redirect_to(customer_path(@current_user))
     else
-      flash[:failed_transaction] = "From account has insufficent funds."
+      flash[:failed_transaction] = "From account has insufficent funds, or please enter an amount."
       @transaction = Transaction.new
       render :new
     end
