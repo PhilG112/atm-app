@@ -1,13 +1,34 @@
-<h1><%= @customer.first_name%> <%= @customer.last_name %></h1>
+<div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li>
+                <%= link_to("Update Details", edit_customer_path(@current_user), class: "btn btn-default") %>
+            </li>
+            <li>
+                <%= link_to("Manage Accounts", customer_accounts_path(@current_user), class: "btn btn-default") %>
+            </li>
+            <li>
+                <%= link_to("Make Transaction", new_customer_transaction_path(@current_user), class: "btn btn-default") %>
+            </li>
+            <li>
+                <%= link_to("View All Transactions", customer_transactions_path(@current_user), class: "btn btn-default") %>
+            </li>
+        </ul>
+    </div>
 
-<p><b>Tax file number:</b> <%= @customer.tfn %></p>
-<p><b>Phone Number:</b> <%= @customer.phone_number %></p>
-<p><b>Customer Number:</b> <%= @customer.customer_number %></p>
-<p><b>Email:</b> <%= @customer.email %></p>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header"><%= @customer.first_name%> <%= @customer.last_name %></h1>
+        <p><b>Tax file number:</b> <%= @customer.tfn %></p>
+        <p><b>Phone Number:</b> <%= @customer.phone_number %></p>
+        <p><b>Customer Number:</b> <%= @customer.customer_number %></p>
+        <p><b>Email:</b> <%= @customer.email %></p>
+    </div>
+</div>
 
-<%= link_to("Update Details", edit_customer_path(@current_user), class: "btn btn-default") %>
-<%= link_to("Manage Accounts", customer_accounts_path(@current_user), class: "btn btn-default") %>
-<%= link_to("Make Transaction", new_customer_transaction_path(@current_user), class: "btn btn-default") %>
-<%= link_to("View All Transactions", customer_transactions_path(@current_user), class: "btn btn-default") %>
 
-<p class="text-success"><%= flash[:transaction_outcome] %></p>
+
+
+
+
+
+

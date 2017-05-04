@@ -12,7 +12,7 @@
                     <td><%= t.credits %></td>
                     <td><%= t.debits %></td>
                     <td><%= link_to(t.account.account_number, customer_account_path(@current_user.id, t.account.id)) %></td>
-                    <td><%= t.created_at %></td>
+                    <td><%= t.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
                 </tr>
             <% end %>
         <% end %>
