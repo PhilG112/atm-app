@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   before_action :check_if_logged_out, only: [:new, :create]
   before_action :check_if_logged_in, only: [:edit, :update, :show]
-
+  # TODO: Fix user privlages, cannot visit other user accounts and information
   def show
     @customer = Customer.find_by(id: params["id"])
   end
