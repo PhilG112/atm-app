@@ -41,10 +41,12 @@
 
     <main class="container-fluid">
       <%= yield %>
-      <div class="error-messages">
-        <p class="text-danger err"><%= flash[:error] %></p>
-        <p class="text-success err"><%= flash[:successful_transaction] %></p>
-        <p class="text-danger err"><%= flash[:failed_transaction] %></p>
+      <div class="row">
+        <div class="error-messages">
+          <p class="text-danger err"><%= flash[:error] %></p>
+          <p class="text-success err"><%= flash[:successful_transaction] %></p>
+          <p class="text-danger err"><%= flash[:failed_transaction] %></p>
+        </div>
       </div>
     </main>
 
