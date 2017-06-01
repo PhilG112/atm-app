@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Second Project built while a student at General Assembly. It is a replication of an online banking system where you can open new accounts and transfer between those accounts.
 
-Things you may want to cover:
+## Built with
 
-* Ruby version
+* Ruby on Rails
+* Active Record
+* Bootstrap
+* PostgreSQL
 
-* System dependencies
+### Things to finish:
+* Transfer between accounts of different users
+* Validation
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Get it running on your system:
+1. Clone the repo
+2. Run ` rails bundle `
+3. Run ` rails db:create `
+4. Run ` rails db:migrate `
+5. Run ` rails db:seed `
+6. Finally ` rails s `
