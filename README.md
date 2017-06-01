@@ -20,3 +20,6 @@ Second Project built while a student at General Assembly. It is a replication of
 4. Run ` rails db:migrate `
 5. Run ` rails db:seed `
 6. Finally ` rails s `
+
+## Live
+Live version can be found [HERE](https://project2-bank-app.herokuapp.com/)
