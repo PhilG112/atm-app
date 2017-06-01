@@ -1,4 +1,4 @@
-# README
+# ATM-App - GA Project 1
 
 Second Project built while a student at General Assembly. It is a replication of an online banking system where you can open new accounts and transfer between those accounts.
 
