@@ -11,21 +11,21 @@ class Transaction < ApplicationRecord
   end
 
   def self.credit_account(account, amount)
-    transaction = Transaction.new
-    transaction.credits = amount
-    transaction.debits = 0
-    transaction.transaction_type = "credit"
-    transaction.account_id = account
-    transaction.save()
+    t = Transaction.new
+    t.credits = amount
+    t.debits = 0
+    t.transaction_type = "credit"
+    t.account_id = account
+    t.save()
   end
   
   def self.debit_account(account, amount)
-    transaction = Transaction.new
-    transaction.debits = amount
-    transaction.credits = 0
-    transaction.transaction_type = "debit"
-    transaction.account_id = account
-    transaction.save()
+    t = Transaction.new
+    t.debits = amount
+    t.credits = 0
+    t.transaction_type = "debit"
+    t.account_id = account
+    t.save()
   end
   
 
